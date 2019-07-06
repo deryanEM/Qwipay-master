@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/custom_toolbar"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logogram"
+        android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/qrnya"
+            android:layout_width="400dp"
+            android:layout_height="400dp" />
+
+    <com.example.baka57r.ezpy.utils.TextView_Lato
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pindai aku untuk"
+        android:layout_gravity="center"
+        android:textColor="@color/blue"
+        android:textSize="14sp"/>
+
+    <com.example.baka57r.ezpy.utils.TextView_Lato
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="melakukan pembayaran"
+        android:layout_gravity="center"
+        android:textColor="@color/blue"
+        android:textSize="14sp"/>
+</LinearLayout>

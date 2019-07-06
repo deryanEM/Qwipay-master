@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_"
+    android:orientation="vertical"
+    tools:context="com.example.baka57r.ezpy.InputTopup">
+
+    <include
+        layout="@layout/custom_toolbar"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/relaqr"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rella11">
+
+            <Button
+                android:id="@+id/generateQr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_green"
+                android:onClick="isi_topup"
+                android:text="Top Up "
+                android:textColor="@color/white_"
+                android:textSize="30sp" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_marginTop="50dp"
+            android:id="@+id/rella1"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            tools:ignore="MissingConstraints">
+
+            <EditText
+                android:id="@+id/TextInputTopup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="INPUT NOMINAL TOPUP"
+                android:singleLine="false"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="22sp" />
+        </RelativeLayout>
+
+        !angka 1
+
+        <RelativeLayout
+            android:id="@+id/rella2"
+            android:layout_width="125dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/rella3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rella1">
+
+            <Button
+                android:id="@+id/bttn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/circle"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:onClick="insatu"
+                android:text="1"
+                android:textSize="36sp" />
+        </RelativeLayout>
+        !angka 2
+
+        <RelativeLayout
+            android:id="@+id/rella3"
+            android:layout_width="125dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/rella4"
+            app:layout_constraintStart_toEndOf="@id/rella2"
+            app:layout_constraintTop_toBottomOf="@+id/rella1">
+
+            <Button
+                android:id="@+id/bttn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/circle"
+                android:gravity="center_vertical|center_horizontal|center"
+                android:onClick="indua"
+                android:text="2"
+                android:textSize="36sp"/>
+        </RelativeLayout>
+        !angka 3
+
+        <RelativeLayout
+            android:id="@+id/rella4"
+            android:layout_width="125dp"
+            android:layout_height="75dp"
+
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rella3"
+            app:layout_constraintTop_toBottomOf="@+id/rella1">
+
+            <Button
+                android:id="@+id/bttn3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/circle"
+                android:onClick="intiga"
+                android:text="3"
+                android:textSize="36sp" />
+        </RelativeLayout>
+        !angka 4
+
+        <RelativeLayout
+            android:id="@+id/rella5"
+            android:layout_width="125dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/rella6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rella2">
+
+            <Button
+                android:id="@+id/bttn4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/circle"
+                android:onClick="inempat"
+                android:text="4"
+                android:textSize="36sp" />
+        </RelativeLayout>
+        !angka 5
+
+        <RelativeLayout
+            android:id="@+id/rella6"
+            android:layout_width="125dp"
+            android:layout_height="75dp"
+
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/rella7"
+            app:layout_constraintStart_toEndOf="@id/rella5"
+            app:layout_constraintTop_toBottomOf="@+id/rella3">
+
+            <Button
+                android:id="@+id/bttn5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/circle"
+                android:onClick="inlima"
+                android:text="5"
+                android:textSize="36sp" />
+        </RelativeLayout>
+        !angka 6
+
+        <RelativeLayout
+            android:id="@+id/rella7"
+            android:layout_width="125dp"
+            android:layout_height="75dp"
+
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rella6"
+            app:layout_constraintTop_toBottomOf="@+id/rella4">
+
+            <Button
+                android:id="@+id/bttn6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/circle"
+                android:onClick="inenam"
+                android:text="6"
+                android:textSize="36sp" />
+        </RelativeLayout>
+        !angka 7
+
+        <RelativeLayout
+            android:id="@+id/rella8"
+            android:layout_width="125dp"
+            android:layout_height="75dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/rella9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rella5">
+
+            <Button
+                android:id="@+id/bttn7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/circle"
+                android:onClick="intujuh"
+                android:text="7"
+                android:textSize="36sp" />
+        </RelativeLayout>
+        !angka 8
+
+        <RelativeLayout
+            android:id="@+id/rella9"
+            android:layout_width="125dp"
+            android:layout_height="75dp"
+
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/rella10"
+            app:layout_constraintStart_toEndOf="@id/rella8"
+            app:layout_constraintTop_toBottomOf="@+id/rella6">
+
+            <Button
+                android:id="@+id/bttn8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/circle"
+                android:onClick="indelapan"
+                android:text="8"
+                android:textSize="36sp"  />
+        </RelativeLayout>
+
+        !angka 9
+
+        <RelativeLayout
+            android:id="@+id/rella10"
+            android:layout_width="125dp"
+            android:layout_height="75dp"
+
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rella9"
+            app:layout_constraintTop_toBottomOf="@+id/rella7">
+
+            <Button
+                android:id="@+id/bttn9"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/circle"
+                android:onClick="insembilan"
+                android:text="9"
+                android:textSize="36sp" />
+        </RelativeLayout>
+        !angka 0
+
+        <RelativeLayout
+            android:id="@+id/rella11"
+            android:layout_width="125dp"
+            android:layout_height="75dp"
+
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rella9">
+
+            <Button
+                android:id="@+id/bttn10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="insepuluh"
+                android:text="0"
+                android:textSize="36sp"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/circle" />
+
+        </RelativeLayout>
+        !Del
+
+        <RelativeLayout
+            android:id="@+id/rella12"
+            android:layout_width="125dp"
+            android:layout_height="75dp"
+
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rella11"
+            app:layout_constraintTop_toBottomOf="@+id/rella10">
+
+            <Button
+                android:id="@+id/bttndel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="hps"
+                android:textColor="@color/colorPrimary"
+                android:text="DEL"
+                android:textSize="24sp"
+                android:background="@drawable/circle"/>
+
+        </RelativeLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>
