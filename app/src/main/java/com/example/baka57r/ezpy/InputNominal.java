@@ -3,7 +3,6 @@ package com.example.baka57r.ezpy;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -29,21 +28,21 @@ public class InputNominal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_harga);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar_ic);
-        tittle = (TextView_Lato) findViewById(R.id.titleSearch);
-        tittle.setText("TRANSAKSI");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        buttonFAQ = (ImageButton) findViewById(R.id.faq_button);
-        buttonFAQ.setVisibility(View.GONE);
-
-        final int sdk = android.os.Build.VERSION.SDK_INT;
-        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-            toolbar.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.headerkecil) );
-        } else {
-            toolbar.setBackground(ContextCompat.getDrawable(this, R.drawable.headerkecil));
-        }
+//        toolbar = (Toolbar) findViewById(R.id.toolbar_ic);
+//        tittle = (TextView_Lato) findViewById(R.id.titleSearch);
+//        tittle.setText("TRANSAKSI");
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        buttonFAQ = (ImageButton) findViewById(R.id.faq_button);
+//        buttonFAQ.setVisibility(View.GONE);
+//
+//        final int sdk = android.os.Build.VERSION.SDK_INT;
+//        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+//            toolbar.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.headerkecil) );
+//        } else {
+//            toolbar.setBackground(ContextCompat.getDrawable(this, R.drawable.headerkecil));
+//        }
 
 
         Bundle bundle = getIntent().getExtras();

@@ -1,28 +1,22 @@
 package com.example.baka57r.ezpy;
 
-import android.*;
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.PagerAdapter;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,21 +26,8 @@ import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
-import com.google.zxing.client.android.Intents;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
-
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-import static java.security.AccessController.getContext;
 
 public class ScanPembeli extends AppCompatActivity {
 
@@ -169,81 +150,45 @@ public class ScanPembeli extends AppCompatActivity {
                             String test = qrCodes.valueAt(0).displayValue.toString();
                             final String[] splitStr = test.split("\\s+");
                             cameraSource.stop();
-                            AlertDialog.Builder alert1 = new AlertDialog.Builder(ScanPembeli.this);
-                            alert1.setMessage("Penjual "+splitStr[0]+" Nominal "+splitStr[1]+"?").setCancelable(false)
-                                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i)
-                                        {
-                                            Retrofit retrofit = new Retrofit.Builder().baseUrl(BeliApi.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
+                            String dataPenjual = splitStr[0];
+                            String dataNominal = splitStr[1];
+                            Intent intent = new Intent(ScanPembeli.this,PayConfirmActivity.class) ;
+                            intent.putExtra("dataPenjual", dataPenjual);
+                            intent.putExtra("dataNominal", dataNominal);
+                            intent.putExtra("dataPembeli", data1);
+                            intent.putExtra("param1", data1);
+                            intent.putExtra("param2", data2);
+                            intent.putExtra("param3", data3);
+                            intent.putExtra("param4", data4);
+                            intent.putExtra("param5", data5);
+                            startActivity(intent);
 
-                                            BeliApi api = retrofit.create(BeliApi.class);
-
-                                            Call<ResponseBody> call = api.getBeli(data4,splitStr[0],splitStr[1],"Bearer "+data2);
-                                            call.enqueue(new Callback<ResponseBody>() {
-                                                @Override
-                                                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                                                    if(response.isSuccessful()){
-                                                        //loading.dismiss();
-                                                        try {
-                                                            JSONObject jsonRes = new JSONObject(response.body().string());
-                                                            hasil1 = jsonRes.getString("_id");
-                                                            hasil2 = jsonRes.getString("penjual");
-                                                            hasil3 = jsonRes.getString("pembeli");
-                                                            hasil4 = jsonRes.getString("tgl_transaksi");
-                                                            hasil5 = jsonRes.getString("bulan_transaksi");
-                                                            hasil6 = jsonRes.getString("tahun_transaksi");
-                                                            hasil7 = jsonRes.getString("jumlah_transaksi");
-                                                            hasil8 = jsonRes.getString("__v");
-
-                                                            Toast tost = Toast.makeText(getApplicationContext(),"Transaksi dengan Penjual : "+hasil2+" sejumlah : Rp "+hasil7+
-                                                                    " pada tanggal "+hasil4+"-"+hasil5+"-"+hasil6+" \nBERHASIL !!!",Toast.LENGTH_LONG);
-                                                            tost.show();
-
-                                                        }catch (JSONException e){
-                                                            e.printStackTrace();
-                                                        }catch (IOException e){
-                                                            e.printStackTrace();
-                                                        }
-                                                    }else {
-
-                                                    }
-                                                }
-
-                                                @Override
-                                                public void onFailure(Call<ResponseBody> call, Throwable t) {
-                                                    Toast tost = Toast.makeText(getApplicationContext(),"Please check your connection" ,Toast.LENGTH_LONG);
-                                                    tost.show();
-                                                }
-                                            });
-
-                                            Intent dashboard = new Intent(ScanPembeli.this,HomeUserActivity.class) ;
-                                            dashboard.putExtra("param1",data1);
-                                            dashboard.putExtra("param2",data2);
-                                            dashboard.putExtra("param3",data3);
-                                            dashboard.putExtra("param4",data4);
-                                            dashboard.putExtra("param5",data5);
-
-                                            startActivity(dashboard);
-                                        }
-                                    })
-                                    .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i)
-                                        {
-                                            dialogInterface.cancel();
-                                            try {
-                                                cameraSource.start(surfaceView.getHolder());
-                                                textView.setText("SCAN LAGI !!!");
-                                            } catch (IOException e) {
-                                                e.printStackTrace();
-                                            }
-
-                                        }
-                                    });
-                            AlertDialog alert = alert1.create();
-                            alert.setTitle("KONFIRMASI");
-                            alert.show();
+//                            AlertDialog.Builder alert1 = new AlertDialog.Builder(ScanPembeli.this);
+//                            alert1.setMessage("Penjual "+splitStr[0]+" Nominal "+splitStr[1]+"?").setCancelable(false)
+//                                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(DialogInterface dialogInterface, int i)
+//                                        {
+//
+//                                        }
+//                                    })
+//                                    .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(DialogInterface dialogInterface, int i)
+//                                        {
+//                                            dialogInterface.cancel();
+//                                            try {
+//                                                cameraSource.start(surfaceView.getHolder());
+//                                                textView.setText("SCAN LAGI !!!");
+//                                            } catch (IOException e) {
+//                                                e.printStackTrace();
+//                                            }
+//
+//                                        }
+//                                    });
+//                            AlertDialog alert = alert1.create();
+//                            alert.setTitle("KONFIRMASI");
+//                            alert.show();
 
 
 
