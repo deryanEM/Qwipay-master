@@ -8,21 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.example.baka57r.ezpy.utils.TextView_Lato;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class InputTopup extends AppCompatActivity {
 
@@ -134,48 +121,50 @@ public class InputTopup extends AppCompatActivity {
     public void isi_topup(View v)
     {
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(TopUp.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
-
-        TopUp api = retrofit.create(TopUp.class);
-
+//        Retrofit retrofit = new Retrofit.Builder().baseUrl(TopUp.BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
+//
+//        TopUp api = retrofit.create(TopUp.class);
+//
+//        String nominal = editText.getText().toString();
+//
+//        Call<ResponseBody> call = api.getTopup(data4, nominal,"Bearer "+data2);
+//        call.enqueue(new Callback<ResponseBody>() {
+//
+//            @Override
+//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+////                Toast tost = Toast.makeText(getApplicationContext(),"success :" +response ,Toast.LENGTH_LONG);
+////                tost.show();
+//                if(response.isSuccessful()){
+//                    //loading.dismiss();
+//
+//                    try {
+//                        JSONObject jsonRes = new JSONObject(response.body().string());
+//                    }catch (JSONException e){
+//                        e.printStackTrace();
+//                    }catch (IOException e){
+//                        e.printStackTrace();
+//                    }
+//                }else {
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResponseBody> call, Throwable t) {
+//                Toast tost = Toast.makeText(getApplicationContext(),"Please check your connection" ,Toast.LENGTH_LONG);
+//                tost.show();
+//            }
+//
+//        });
         String nominal = editText.getText().toString();
 
-        Call<ResponseBody> call = api.getTopup(data4, nominal,"Bearer "+data2);
-        call.enqueue(new Callback<ResponseBody>() {
-
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-//                Toast tost = Toast.makeText(getApplicationContext(),"success :" +response ,Toast.LENGTH_LONG);
-//                tost.show();
-                if(response.isSuccessful()){
-                    //loading.dismiss();
-
-                    try {
-                        JSONObject jsonRes = new JSONObject(response.body().string());
-                    }catch (JSONException e){
-                        e.printStackTrace();
-                    }catch (IOException e){
-                        e.printStackTrace();
-                    }
-                }else {
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast tost = Toast.makeText(getApplicationContext(),"Please check your connection" ,Toast.LENGTH_LONG);
-                tost.show();
-            }
-
-        });
-
-        Intent dashboard = new Intent(InputTopup.this,HomeUserActivity.class) ;
+        Intent dashboard = new Intent(InputTopup.this,ConfirmPembeliActivity.class) ;
         dashboard.putExtra("param1", data1);
         dashboard.putExtra("param2", data2);
         dashboard.putExtra("param3", data3);
         dashboard.putExtra("param4", data4);
         dashboard.putExtra("param5", data5);
+        dashboard.putExtra("dataNominal", nominal);
         startActivity(dashboard);
     }
 
